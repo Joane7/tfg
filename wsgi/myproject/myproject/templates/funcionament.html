@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es-ca">
+<head>
+    <meta charset="utf-8">
+    <title>Aplicació de sistemes</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+    <body>
+        <!-- header -->
+        <header>
+            Funcionament
+            <a href="../inici">Aplicació</a>
+            <a href="../quisom">Qui som</a>
+        </header>
+
+    <div class="box">
+        <div class="funcionament">
+            <b>
+            1. Afegeix totes les fórmules possibles. Introdueix-les al rectangle, ves-les afegint totes clicant a "Afegir".</b>
+            <br>
+            <img src="static/funcionament/afegirEquacions.png" style="height: 150px; margin: 10px 10px 10px 10px"/>
+        </div>
+
+    </div>
+    <br>
+    <div class="box">
+        <div class="funcionament">
+            <b>
+            2. Observar com van apareixent les equacions afegides a la taula i com es va creant el graf inicial a mesura que vas afegint equacions. Podràs anar observant les relacions entre equacions a mesura que vagis afegint equacions.</b>
+            <br>
+            <img src="static/funcionament/creaGrafInicial.png" style="width: calc(80% - 20px); margin: 10px 10px 10px 10px"/>
+        </div>
+    </div>
+    <br>
+    <div class="box">
+        <div class="funcionament">
+            <b>
+                3. Introdueix les dades d'entrada de l'enunciat donant valor a les variables detectades i indica quines variables són les que busques clicant a la casella output. Clica l'opció "Agafar dades d'entrada".</b>
+                <br>
+                <img src="static/funcionament/introdueixDades.png" style="width: calc(60% - 20px); margin: 10px 10px 10px 10px" />
+        </div>
+    </div>
+    <br>
+    <div class="box">
+        <div class="funcionament">
+            <b style="margin: 10px">4. En la primera taula podem observar totes les equacions, tan les afegides inicialment per l’usuari com les creades mitjançant igualació. En elles s’hi mostra l’equació, el seu identificador, la equació canònica de l’equació i quin tipus és, és a dir, si és una equació inicial introduïda per l’usuari o una equació creada per igualació..</b>
+            <br>
+            <img src="static/funcionament/analitza.png" style="width: calc(80% - 20px); margin: 20px" />
+
+            <br>
+
+            <b style="margin: 20px">En la següent taula s’hi mostren els passos que ha de realitzar l’usuari per a poder solucionar el sistema d’equacions ordenats per l’ordre d’execució del sistema. A la taula s’hi pot observar el número de pas que és, quina variable ha trobat, quin és el resultat i quina equació ha fet servir, mostrant l’identificador de la fórmula que utilitza.</b>
+            <br>
+
+            <img src="static/funcionament/solucions.png" style="width: calc(70% - 20px); margin: 10px 10px 10px 10px" />
+
+            <br>
+
+            <b>Tal i com s’ha comentat a l’apartat d’enfoc, per tal de que l’usuari pugui entendre les imatges s’ha realitzat una llegenda utilitzant els colors com a base per facilitar l’aprenentatge de com solucionar el sistema. La llegenda utilitzada és la mostrada en l’imatge inferior. L’aplicació es basarà en dos llegendes, la primera és la representació mitjançant colors, que indicarà si coneixem o no coneixem el node. La segona llegenda està realitzada utilitzant la forma com a font d’informació. Els quadrats ens indicaran que es tracta d’un node equació. Les rodones, segons la mida indicaran que es una variable, una variable composta per altres variables o si es tracta d’una variable que volem saber-ne el resultat(variable output).<b/>
+            <br>
+
+            <img src="static/funcionament/llegendes.png" style="width: calc(80% - 20px); margin: 10px 10px 10px 10px"/>
+
+            <br>
+
+            <b>En el mostreig de dades finals s’hi pot observar un scroll horitzontal (imatges inferiors) on s’hi aprecia totes les imatges pas a pas. En ell podem observar un títol de cada imatge. El títol ens indica si és el graf inicial, en quin pas ens trobem de la resolució del sistema d’equacions, etc. Cada una de les imatges que mostren el pas es troben relacionades amb el pas indicat a la taula superior. A continuació es mostren totes les imatges per l’exemple mostrat m’entres es realitzava l’explicació. <b/>
+
+
+            <br>
+            <img src="static/funcionament/grafInicial_grafinicialvalors.png" style="width: calc(80% - 20px); margin: 10px 10px 10px 10px"/>
+            <br>
+            <b>En aquesta imatge es mostra el graf inicial i el graf inicial amb els nodes indicant que significa, segons la llegenda mostrada anteriorment, cada node segons el color i forma</b>
+            <br>
+            <br>
+            <img src="static/funcionament/unificacio_total.png" style="width: calc(80% - 20px); margin: 10px 10px 10px 10px"/>
+            <br>
+                <b>En aquesta imatge es pot observar el graf amb la variable nova(f(a,b)) creada de dos variables que desconeixem i els valors de les diferents variables. En la següent imatge es mostra el graf complert amb tots els nodes possibles.
+                <b/>
+            <br>
+            <br>
+            <img src="static/funcionament/grafTotalPas_pas.png" style="width: calc(80% - 20px); margin: 10px 10px 10px 10px"/>
+            <br>
+                <b>En l'imatge de la esquerra s'indica quina equació ha triat l'aplicació per resoldre el sistema marcant els enllaços amb discontinua i en la de la dreta únicament l’equació escollida amb els seus valors, indicant clarament quines variables coneix i quines no. A més podem comprovar que t és un output degut a que el node és lleugerament més gran.
+                <b/>
+            <br>
+            <br>
+            <img src="static/funcionament/grafFinal.png" style="width: calc(40% - 20px); margin: 10px 10px 10px 10px"/>
+            <br>
+                <b>Graf final. Mostreig del graf amb els valors, indicant les variables conegudes i desconegudes, on si s'ha resolt, les variables que buscaven estan de color verd(conegudes).
+                <b/>
+
+            
+        </div>
+    </div>  
+    </body>
+</html>

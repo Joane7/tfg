@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es-ca">
+    <head>
+        <meta charset="utf-8">
+        <title>Aplicació de sistemes</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+    <body>
+        <!-- header -->
+        <header>
+            Mostreig de dades
+            <a href="../inici">Aplicació</a>
+            <a href="../funcionament">Ajuda</a>
+            <a href="../quisom">Qui som</a>
+        </header>
+
+        <br>
+        <div>
+            <table class="box" cellspacing=0 border="5" style=width:100% height:100% >
+                <tr>
+                    <td COLSPAN=4 align="center"><b>EQUACIONS OBTINGUDES</b></td>
+                </tr>
+                <tr>
+                    <TH COLSPAN=1>Identificador equació</TH>
+                    <TH COLSPAN=1>Equació</TH>
+                    <TH COLSPAN=1>Canònica</TH>
+                    <TH COLSPAN=1>Tipus</TH>
+                </tr>
+                    {%for item in equacio2.llistatEquacions %}
+                    <tr>
+                        <td align="center"> 
+                            {{item.num}}
+                        </td>
+                        <td align="center"> 
+                            {{item.equacio}}
+                        </td>
+                        <td align="center"> 
+                            {{item.canonica}}=0
+                        </td>
+                        <td align="center"> 
+                            {{item.tipus}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </table>
+        </div>
+
+        <br>
+        <div>
+
+    <div class="legend">
+        <div><div class="icon content-box-black" style="height: 25px;width: 25px; line-height: 35px;"></div> Node variable composta</div>
+        <div><div class="icon content-box-black" style="height: 20px;width: 20px;"></div> Node variable output</div>
+        <div><div class="icon content-box-black"></div> Node variable</div>
+        <div><div class="formula content-box-black"></div> Node equació</div>
+    </div>
+    <div class="legend">
+        <div><div class="icon content-box-blue"></div> Node equació</div>
+        <div><div class="icon content-box-yellow"></div> Node variable</div>
+        <div><div class="icon content-box-green"></div> Node variable coneguda</div>
+        <div><div class="icon content-box-red"></div> Node variable desconeguda</div>
+    </div>
+        {% if resultats != None %}
+            <table border="5" cellspacing=0 style="width:50%" class="box">
+                <tr>
+                    <td COLSPAN=4 align="center"><b>SOLUCIONS FINALS</b></td>
+                </tr>
+                <tr>
+                    <TH COLSPAN=1>Pas</TH>
+                    <TH COLSPAN=1>Variable</TH>
+                    <TH COLSPAN=1>Resultat</TH>
+                    <TH COLSPAN=1>Identificador equació</TH>
+                    <!--<TH COLSPAN=1>Fòrmula</TH>
+                    <TH COLSPAN=1>Operació</TH>-->
+                </tr>
+                    {%for item in equacio2.listCheckOutValor %}
+                    <tr>
+                        <td align="center"> 
+                            {{item.pas}}
+                        </td>
+                        <td align="center"> 
+                            {{item.var}}
+                        </td>
+                        <td align="center"> 
+                            {{item.valor}}
+                        </td>
+                        <td align="center"> 
+                            {{item.numFor}}
+                        </td>
+                        <!--<td align="center"> 
+                            {{item.equacio}}
+                        </td>
+                        <td align="center"> 
+                            {{item.operacio}}
+                        </td>-->
+                    </tr>
+                    {% endfor %}
+            </table>
+        {% else %}
+            <div class="pregraf2" style="width:50%">
+                <center>ouhh! No hem pogut trobar els resultats!!</center>
+            </div>
+        {% endif %}
+        </div>
+        <br>
+
+    
+            <!--{% for path in equacio2.listPath %}
+                <div class="slide">
+                    <li id="{{path.num}}"><img src="static/{{path.path}}.png"></li>
+                </div>
+                
+            {% endfor %}
+            {% for path in equacio2.listPath %}
+                <div>
+                    <li <a href="#{{path.num}}">Image{{path.num}}</a></li>
+                </div>
+            {% endfor %}-->
+
+    <div class="box2">
+
+    <div class="slide">
+        {% for path in equacio2.listPath %}
+        <div style="display: inline-block; width: 40%;">
+            {% if path.nom != None %}
+                <img title ="{{path.nom}}" src="static/img/{{path.path}}.png" alt="Image{{path.num}}" style="width: 100%; margin: 10px" >
+                <br><b>{{path.nom}}</b>
+            {% endif %}
+        </div>
+        {% endfor %}
+        {% for path in equacio2.listPath2 %}
+        <div style="display: inline-block; width: 40%;">
+            {% if path.nom != None %}
+                <img title ="{{path.nom}}" src="static/img/{{path.path}}.png" alt="Image{{path.num}}" style="width: 100%; margin: 10px" >
+                <br><b>{{path.nom}}</b>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+    
+    <br>
+    <!--<div class="box">
+        <center>
+            {% if equacio2.pathFotoFinal != None %}
+                <img src="static/{{equacio2.pathFotoFinal}}.png" alt="static/{{equacio2.pathFotoFinal}}.png"/ style="width: calc(50% - 20px); margin-right: 10px">
+            {% endif %}
+            {% if equacio2.pathFoto != None %}
+                <img src="static/{{equacio2.pathFoto}}.png" alt="static/{{equacio2.pathFoto}}.png"/ style="width: calc(50% - 20px);">
+            {% endif %}
+        </center>
+    </div>-->
+
+        <!--<div class="box">
+            <table border="5" style=width:100% height:100% >
+                <tr>
+                    <td COLSPAN=2 align="center"><b>LLEGENDA</b></td>
+                </tr>
+                <tr>
+                    <TH COLSPAN=1>COLOR</TH>
+                    <TH COLSPAN=1>SIGNIFICAT</TH>
+                </tr>
+                <tr>
+                    <TH COLSPAN=1 class="content-box-red"></TH>
+                    <TH COLSPAN=1>Fórmules</TH>
+                </tr>
+                <tr>
+                    <TH COLSPAN=1 class="content-box-blue"></TH>
+                    <TH COLSPAN=1>Variables conegudes</TH>
+                </tr>
+                <tr>
+                    <TH COLSPAN=1 class="content-box-yellow"></TH>
+                    <TH COLSPAN=1>Variables trobades</TH>
+                </tr>
+                <tr>
+                    <TH COLSPAN=1 class="content-box-green"></TH>
+                    <TH COLSPAN=1>Variable final</TH>
+                </tr>
+            </table>
+        </div>-->
+        <div>
+            <table class="box" cellspacing=0 border="5" style=width:100% height:100% >
+                <tr>
+                    <td COLSPAN=4 align="center"><b>EQUACIONS CREADES</b></td>
+                </tr>
+                <tr>
+                    <TH COLSPAN=1>Equació nova</TH>
+                    <TH COLSPAN=1>Equacio 1</TH>
+                    <TH COLSPAN=1>Equacio 2</TH>
+                </tr>
+                    {%for item in equacio2.listNovesFormules %}
+                    <tr>
+                        <td align="center"> 
+                            {{item.numEquacio}}:{{item.equacio}}
+                        </td>
+                        <td align="center"> 
+                            {{item.numEqua1}}:{{item.equacio1}}
+                        </td>
+                        <td align="center"> 
+                            {{item.numEqua2}}:{{item.equacio2}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>

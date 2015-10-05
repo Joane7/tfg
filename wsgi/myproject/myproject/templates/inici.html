@@ -1,0 +1,57 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es-ca">
+    <head>
+        <meta charset="utf-8">
+        <title>Aplicació de sistemes</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+
+        <header>
+            Recopilació de dades
+            <a href="../funcionament">Ajuda</a>
+            <a href="../quisom">Qui som</a>
+        </header>
+
+        <div class="left">
+            <div class="box">
+                <form align="center" method="post" action='/afegir'>{% csrf_token %}
+                    <b>Equació:</b> <input type='text' name='equacio' value="">
+                    <input align="center" type="submit" value="Afegir">
+                </form>
+                <hr>
+                <form align="center" method="post" action='/afegirInputs'>{% csrf_token %}
+                    <input align="center" type="submit" value="Seleccionar dades d'entrada"/>
+                </form>
+                <form align="center" method="post" action='/reinicia'>{% csrf_token %}
+                    <input align="center" type="submit" value="Reiniciar APP"/>
+                </form>
+            </div>
+
+        {% if equacio2.pathFotoInicial != None %}
+            <div class="box">
+                <b style="margin: 5px; display: inline-block">EQUACIONS</b>
+                <hr>
+                {% for item in equacio2.llistatEquacions %}
+                    <b class="num">{{item.num}}</b>
+                    <span style="margin: 5px; display: inline-block">{{item.equacio}}</span>
+                    {% if not forloop.last %} <hr style="border-style: dashed"> {% endif %}
+                {% endfor %}             
+            </div>
+        {% endif %}
+
+        </div>
+
+        <div class="right">
+            {% if equacio2.pathFotoInicial != None %}
+            <center><img title="Graf complert" src="static/img/{{equacio2.pathFotoInicial}}.png" alt="Graf complert"/ ></center>
+            {% else %}
+            <div class="pregraf">
+                <center>Afegeix equacions!!</center>
+            </div>
+            {% endif %}
+        </div>
+
+    </body>
+</html>

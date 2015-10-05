@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es-ca">
+    <head>
+        <meta charset="utf-8">
+        <title>Aplicació de sistemes</title>
+        <link rel="stylesheet" href="/static/style.css"> 
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+    </head>
+    <script>
+    function buttonChecked(item){
+        $('#text-'+item).val('');
+        $('#text-'+item).toggle();
+    }
+    </script>
+    <body>
+        <header>
+            Obtenció de les dades d'entrada i de sortida
+            <a href="../inici">Aplicació</a>
+            <a href="../funcionament">Ajuda</a>
+            <a href="../quisom">Qui som</a>
+        </header>
+
+        <br>
+        {% if equacio2.pathFotoInicial != None %}
+
+        <center>
+        <div class="box" style=width:50%>
+            <center><b style="margin: 5px; display: inline-block; text-align: center;">AFEGIR DADES</b></center>
+            <hr>
+            <form action="/graf" id="form" method=POST style="width: 100%">{% csrf_token %}
+                {% for item in equacio2.GV.nodes %}
+                    <span style="margin: 10px; display: inline-block; width: 20px; text-align: center"><label for="check" margin: 10px;>{{ item }}</label></span>
+                    <input type='text' name={{ item }} value="" id="text-{{ item }}" style=width:35% height:35% />
+                    <input type="checkbox" name="check2" value={{ item }} id="text-{{ item }}" onClick="buttonChecked('{{ item }}')" autocomplete="off"/> Output
+                    <hr style="border-style: dashed">
+                {% endfor %}   
+                <input align="center" class="ident" type ="submit" value="Agafar dades d'entrada" id="seleccionar"/>   
+                <form align="center" id="form1" method="post" action='/afegirFormula'>{% csrf_token %}
+                    <input align="left" class="ident" type ="submit" value="Afegir fòrmules" id="seleccionar"/>
+                </form>
+            </form> 
+
+            <b>{{sms}}</b>        
+        </div></center>
+        {% else %}
+            <center>
+            <form align="center" id="form1" method="post" action='/inici'>{% csrf_token %}
+                <b>HAS D'AFEGIR PRIMER EQUACIONS! No vulguis anar tant ràpid!</b>
+                <input align="left" class="ident" type ="submit" value="Tornar" id="seleccionar"/>
+            </form>
+            </center>
+        {% endif %}
+        
+    </body>
+</html>

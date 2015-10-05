@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es-ca">
+    <head>
+        <meta charset="utf-8">
+        <title>Aplicació de sistemes</title>
+        <link rel="stylesheet" href="/static/style.css">
+        {% load staticfiles %}
+    </head>
+
+
+<body>
+    <center>
+        <div class="error"></div>
+        <form align="center" method="post" action='/inici' >{% csrf_token %}
+            <input class="box" align="left" class="ident" type ="submit" value="Tornem a provar?" style="margin: 10px 2px 10px 2px;"/>
+        </form>
+    </center>
+</body>
+</html>
